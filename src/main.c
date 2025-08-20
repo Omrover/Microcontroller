@@ -62,13 +62,11 @@ int main(void){
 			t = 0;
 		}*/
 
-
-
 		//Función a diferencias
 		if(flag == 1){
 			flag = 0;
 			analogRead3=readAdc();//Leer adc
-			X=3.3*analogRead3/4095;//Escalamos a la lectura de conversión del ADC (2^12) bits
+			F=3.3*analogRead3/4095;//Escalamos a la lectura de conversión del ADC (2^12) bits
 			X = a*F_1 + b*F_2 - c*X_1 - d*X_2;//Ecuación a diferencias
 
 			//Actualización de variables para el siguiente paso
@@ -82,7 +80,7 @@ int main(void){
 				X=3.3;
 			}
 			else if(X<0){
-				X=3.3;
+				X=0;
 			}
 
 			//Escalar la variable a la frecuencia de pwm
